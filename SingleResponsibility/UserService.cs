@@ -13,14 +13,14 @@ namespace SOLID_Principles
         public void Register(string email, string password)
         {
             var emailService = new EmailService();
-            if (!emailService.ValidateEmail(email))
+            if (!emailService.validateEmail(email))
                 throw new ValidationException("Email is not an email");
             var user = new User(email, password);
 
-            emailService.SendEmail(user);
+            emailService.sendEmail(user);
         }
 
-        public void Login(string email, string password)
+        public void login(string email, string password)
         {
             Console.WriteLine("Login");
         }
