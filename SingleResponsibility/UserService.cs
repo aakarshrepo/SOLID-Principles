@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLID_Principles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
@@ -11,11 +12,12 @@ namespace SOLID_Principles
 
         public void Register(string email, string password)
         {
-            if (!ValidateEmail(email))
+            var emailService = new EmailService();
+            if (!emailService.ValidateEmail(email))
                 throw new ValidationException("Email is not an email");
             var user = new User(email, password);
 
-            SendEmail(user);
+            emailService.SendEmail(user);
         }
 
         public void Login(string email, string password)
@@ -23,12 +25,10 @@ namespace SOLID_Principles
             Console.WriteLine("Login");
         }
 
-        public virtual bool ValidateEmail(string email)
-        {
-            return email.Contains("@");
-        }
-        public void SendEmail(User message) => Console.WriteLine("send message");
-
-
+        //public virtual bool ValidateEmail(string email)
+        //{
+        //    return email.Contains("@");
+        //}
+        //public void SendEmail(User message) => Console.WriteLine("send message");
     }
 }
