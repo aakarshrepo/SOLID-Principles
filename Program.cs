@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLID_Principles.DependencyInversion;
+using System;
 
 namespace SOLID_Principles
 {
@@ -6,12 +7,12 @@ namespace SOLID_Principles
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Logging to Product Service");
 
             #region Dependency Inversion 
-            //ILogger logger = new FileLogger();
-            //ProductService productService = new ProductService(logger);
-            //productService.Log("Hello World!");
+            ILog objLog = new DatabaseLogger();
+            ProductService productService = new ProductService(objLog);
+            productService.Log("Started Logging to Product Service");
             #endregion
         }
 
