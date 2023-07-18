@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
 using System.Text;
 
-namespace SOLID_Principles
+namespace SOLID_Principles.SingleResponsibility
 {
     public class UserService
     {
 
-        public void Register(string email, string password)
+        public void register(string email, string password)
         {
             var emailService = new EmailService();
             if (!emailService.validateEmail(email))
