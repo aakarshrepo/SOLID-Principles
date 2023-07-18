@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SOLID_Principles
+namespace SOLID_Principles.SingleResponsibility
 {
     public class EmailService
     {
